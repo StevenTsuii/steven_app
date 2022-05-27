@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:steven_app/feature/article/data/repositories/ArticleRepositoryImpl.dart';
-import 'package:steven_app/feature/article/domain/repositories/article_repository.dart';
 import 'package:steven_app/feature/article/domain/usecases/get_article_list.dart';
 import 'package:steven_app/feature/article/presentation/bloc/article_bloc.dart';
 import 'package:steven_app/feature/article/presentation/pages/article_list_page.dart';
@@ -11,6 +10,8 @@ import 'feature/book/presentation/bloc/book_bloc.dart';
 import 'feature/book/presentation/pages/book_page.dart';
 
 class MainPage extends StatefulWidget {
+  static const valueKey = "MainPage";
+
   const MainPage({Key? key}) : super(key: key);
 
   @override
