@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:steven_app/feature/article/data/repositories/ArticleRepositoryImpl.dart';
 import 'package:steven_app/feature/article/domain/usecases/get_article_list.dart';
 import 'package:steven_app/feature/article/presentation/pages/article_detail_page.dart';
-import 'package:steven_app/main_page.dart';
+import 'package:steven_app/main_screen.dart';
 
 import 'feature/article/presentation/bloc/article_bloc.dart';
 

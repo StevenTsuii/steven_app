@@ -37,6 +37,8 @@ dependencies:
   flutter_bloc: ^8.0.1
   equatable: ^2.0.0
   dartz: ^0.10.1
+  animated_text_kit: ^4.2.1
+  cached_network_image: ^3.2.0
 
 dev_dependencies:
   flutter_test:

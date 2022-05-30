@@ -4,6 +4,7 @@ import 'package:steven_app/feature/article/data/repositories/ArticleRepositoryIm
 import 'package:steven_app/feature/article/domain/usecases/get_article_list.dart';
 import 'package:steven_app/feature/article/presentation/bloc/article_bloc.dart';
 import 'package:steven_app/feature/article/presentation/pages/article_list_page.dart';
+import 'package:steven_app/feature/article/presentation/pages/gallery_page.dart';
 
 import 'feature/book/domain/entities/book.dart';
 import 'feature/book/presentation/bloc/book_bloc.dart';
@@ -26,6 +27,7 @@ class _MainPageState extends State<MainPage> {
         ..add(LoadArticleListEvent()),
       child: const ArticleListPage(),
     ),
+    const GalleryPage(),
     BlocProvider<BookBloc>(
       create: (context) =>
           BookBloc()..add(AddBookEvent(const Book("FirstBook", 123))),
@@ -70,6 +72,8 @@ class _MainPageState extends State<MainPage> {
       },
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.whatshot), label: "Hot"),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.image), label: "Gallery"),
         BottomNavigationBarItem(icon: Icon(Icons.details), label: "Details"),
         BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
       ],

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,28 +11,31 @@ class ArticleListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ArticleBloc, ArticleState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return SafeArea(
-          child: Stack(children: [
-            state is ShowArticleListState
-                ? ListView.builder(
-                    itemCount: state.articleList.length,
-                    itemBuilder: (BuildContext context, index) {
-                      return _buildCard(state.articleList[index]);
-                    },
-                  )
-                : const SizedBox.shrink(),
-            state is ArticleLoadingState
-                ? _buildLoading()
-                : const SizedBox.shrink(),
-            state is ShowArticleListState
-                ? _buildFloatingActionButton(context)
-                : const SizedBox.shrink(),
-          ]),
-        );
-      },
+    return ImageFiltered(
+      imageFilter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
+      child: BlocConsumer<ArticleBloc, ArticleState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return SafeArea(
+            child: Stack(children: [
+              state is ShowArticleListState
+                  ? ListView.builder(
+                      itemCount: state.articleList.length,
+                      itemBuilder: (BuildContext context, index) {
+                        return _buildCard(state.articleList[index]);
+                      },
+                    )
+                  : const SizedBox.shrink(),
+              state is ArticleLoadingState
+                  ? _buildLoading()
+                  : const SizedBox.shrink(),
+              state is ShowArticleListState
+                  ? _buildFloatingActionButton(context)
+                  : const SizedBox.shrink(),
+            ]),
+          );
+        },
+      ),
     );
   }
 
